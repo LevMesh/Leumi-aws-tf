@@ -19,27 +19,34 @@ variable "instance_type" {
 
 variable "vpc_id" {
   description = "vpc"
-  type = string
-  default = "vpc-052ea6d35810b17c0"
-  
+  type        = string
+  default     = "vpc-052ea6d35810b17c0"
+
 }
 
 variable "first_private_subnet" {
   description = "ID of the first private subnet in the default vpc"
-  type = string
-  default = "subnet-0c91a1f9641338171"
+  type        = string
+  default     = "subnet-0c91a1f9641338171"
 }
 
 variable "second_private_subnet" {
   description = "ID of the second private subnet in the default vpc"
-  type = string
-  default = "subnet-0277c228c75a41884"
+  type        = string
+  default     = "subnet-0277c228c75a41884"
 }
 
 variable "public_subnet" {
   description = "ID of the public subnet in the default vpc"
-  type = string
-  default = "subnet-0d71e5158d7927d52"
+  type        = string
+  default     = "subnet-0d71e5158d7927d52"
+}
+
+
+variable "domain_name" {
+  description = "Domain name"
+  type        = string
+  default     = "lev.leumi-nonprod.com"
 }
 
 
