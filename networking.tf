@@ -23,9 +23,6 @@ resource "aws_security_group" "my-sg" {
   description = "Security group for production python server"
   vpc_id      = data.aws_vpc.default.id
 
-  # tags = 
-
-
   ingress {
     description      = "Allow HTTP"
     from_port        = 80
@@ -33,7 +30,6 @@ resource "aws_security_group" "my-sg" {
     protocol         = "TCP"
     cidr_blocks      = ["172.16.12.0/22"]
   }
-
 
   egress {
     from_port   = 0
@@ -45,13 +41,10 @@ resource "aws_security_group" "my-sg" {
 }
 
 
-
-
 resource "aws_security_group" "alb-sg" {
   name        = "alb-sg"
   description = "Security group for alb"
   vpc_id      = data.aws_vpc.default.id
-
 
   ingress {
     description      = "Allow HTTPS"
@@ -60,7 +53,6 @@ resource "aws_security_group" "alb-sg" {
     protocol         = "TCP"
     cidr_blocks      = ["0.0.0.0/0"]
   }
-
 
   egress {
     from_port   = 0
