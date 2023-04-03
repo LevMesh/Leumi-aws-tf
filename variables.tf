@@ -62,8 +62,9 @@ variable "additional_tags" {
 
   default = {
     "created_by"    = "Lev Meshorer"
-    "creation_date" = "30.03.2023"
+    "creation_date" = "03.04.2023"
     "deployed_with" = "Terraform"
+    "Owner"         = "Lev"
   }
 
 }

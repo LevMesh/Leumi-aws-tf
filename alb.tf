@@ -6,8 +6,7 @@ resource "aws_lb" "my-alb" {
   ip_address_type    = "ipv4"
   internal           = false
   subnets            = [data.aws_subnet.public-sub.id, data.aws_subnet.first-private-sub.id]
-  security_groups    = [aws_security_group.my-sg.id]
-
+  security_groups    = [aws_security_group.alb-sg.id]
 
 }
 
@@ -43,8 +42,8 @@ resource "aws_lb_listener" "alb-listener" {
   load_balancer_arn = aws_lb.my-alb.arn
   port              = 443
   protocol          = "HTTPS"
-  ssl_policy = "ELBSecurityPolicy-2016-08"
-  certificate_arn = aws_acm_certificate.acm_certificate.arn
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = aws_acm_certificate.acm_certificate.arn
 
   default_action {
     type             = "forward"

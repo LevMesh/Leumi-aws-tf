@@ -7,10 +7,14 @@ resource "aws_instance" "ec2" {
   user_data              = file("install.sh")
   iam_instance_profile   = aws_iam_instance_profile.ec2_s3_profile.id
 
-  associate_public_ip_address = true
+  associate_public_ip_address = false
 
   metadata_options {
     http_tokens   = "required"
     http_endpoint = "enabled"
   }
+
+  #depends_on = [
+  #security_groups = 
+  #]
 }
